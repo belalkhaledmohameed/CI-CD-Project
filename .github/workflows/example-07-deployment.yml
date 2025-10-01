@@ -15,6 +15,7 @@ jobs:
       - name: Setup SSH key
         run: |
           mkdir -p ~/Downloads
+          mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/CI-CD
           chmod 600 ~/Downloads/CI-CD
           ssh-keyscan -H 3.83.100.239 >> ~/.ssh/known_hosts
