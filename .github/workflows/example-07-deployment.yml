@@ -16,12 +16,12 @@ jobs:
         run: |
           mkdir -p ~/Downloads
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/CI-CD
-          chmod 600 ~/Downloads/CI-CD
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/CI-CD.pem
+          chmod 600 ~/Downloads/CI-CD.pem
           ssh-keyscan -H 3.83.100.239 >> ~/.ssh/known_hosts
       
       - name: Deploy to Google Cloud
-        run: ssh -i "CI-CD"  ubuntu@3.83.100.239 "cd ~/project/CI-CD-Project && git pull origin master"
+        run: ssh -i "CI-CD.pem"  ubuntu@3.83.100.239 "cd ~/project/CI-CD-Project && git pull origin master"
 
 
 
