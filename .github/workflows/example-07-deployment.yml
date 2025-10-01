@@ -2,9 +2,11 @@ name: Example 07 - Deployment
 run-name: Example 07 - Deployment
 
 on: 
-  push:
-    branches:
-      - production
+  # push:
+  #   branches:
+  #     - production
+  workflow_dispatch:
+    
 
 jobs:
   run-tests:
@@ -12,13 +14,13 @@ jobs:
     steps:
       - name: Setup SSH key
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 34.132.225.97 >> ~/.ssh/known_hosts
+          mkdir -p ~/Downloads
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/CI-CD
+          chmod 600 ~/Downloads/CI-CD
+          ssh-keyscan -H 3.83.100.239 >> ~/.ssh/known_hosts
       
       - name: Deploy to Google Cloud
-        run: ssh -o StrictHostKeyChecking=no mahmoud@34.132.225.97 "cd ~/project/github-actions-course && git pull origin production"
+        run: ssh -o StrictHostKeyChecking=no  ubuntu@3.83.100.239 "cd ~/project/CI-CD-Project && git pull origin production"
 
 
 
