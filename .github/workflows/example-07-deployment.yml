@@ -15,7 +15,6 @@ jobs:
       - name: Setup SSH key
         run: |
           mkdir -p ~/Downloads
-         
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/CI-CD.pem
           chmod 400 ~/Downloads/CI-CD.pem
