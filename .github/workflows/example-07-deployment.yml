@@ -20,7 +20,7 @@ jobs:
           ssh-keyscan -H 3.83.100.239 >> ~/.ssh/known_hosts
       
       - name: Deploy to Google Cloud
-        run: ssh -o StrictHostKeyChecking=no  ubuntu@3.83.100.239 "cd ~/project/CI-CD-Project && git pull origin production"
+        run: ssh -o StrictHostKeyChecking=no  ubuntu@3.83.100.239 "cd ~/project/CI-CD-Project && git pull origin master"
 
 
 
