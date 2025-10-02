@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to Google Cloud
         run: |
           cd ~/Downloads
-          ssh -i "Dploy-pipeline.pem"  ubuntu@98.80.234.69 "mkdir ~/Project && cd ~/Project/ && git init && git clone https://github.com/belalkhaledmohameed/CI-CD-Project.git && cd ~/Project/CI-CD-Project && git pull origin master"
+          ssh -i "Dploy-pipeline.pem"  ubuntu@98.80.234.69 " cd ~/Project/CI-CD-Project && git pull origin master"
 
 
 
