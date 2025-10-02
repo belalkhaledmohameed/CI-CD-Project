@@ -16,14 +16,14 @@ jobs:
         run: |
           mkdir -p ~/Downloads
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/CI-CD.pem
-          chmod 400 ~/Downloads/CI-CD.pem
-          ssh-keyscan -H 3.83.100.239 >> ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/Downloads/Dploy-pipeline.pem
+          chmod 400 ~/Downloads/Dploy-pipeline.pem
+          ssh-keyscan -H 98.80.234.69 >> ~/.ssh/known_hosts
       
       - name: Deploy to Google Cloud
         run: |
           cd ~/Downloads
-          ssh -i "CI-CD.pem"  ubuntu@3.83.100.239 "cd ~/project/CI-CD-Project && git pull origin master"
+          ssh -i "Dploy-pipeline.pem"  ubuntu@98.80.234.69 "mkdir Project && git init && git clone https://github.com/belalkhaledmohameed/CI-CD-Project.git && cd ~/project/CI-CD-Project && git pull origin master"
 
 
 
