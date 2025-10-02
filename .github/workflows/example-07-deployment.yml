@@ -2,10 +2,10 @@ name: Example 07 - Deployment
 run-name: Example 07 - Deployment
 
 on: 
-  # push:
-  #   branches:
-  #      - production
-   workflow_dispatch:
+   push:
+    branches:
+      - production
+  #  workflow_dispatch:
     
 
 jobs:
